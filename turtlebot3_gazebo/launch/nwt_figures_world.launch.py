@@ -15,7 +15,7 @@ def generate_launch_description():
 
     use_sim_time = LaunchConfiguration("use_sim_time", default="true")
     robot_start_pose_x = LaunchConfiguration("robot_start_pose_x", default="0.5")
-    robot_start_pose_y = LaunchConfiguration("robot_start_pose_y", default="0.5")
+    robot_start_pose_y = LaunchConfiguration("robot_start_pose_y", default="1.52")
     default_world = join(turtlebot3_gazebo_dir, "worlds", "nwt.world")
 
     # Start Gazebo server and client
