@@ -20,7 +20,9 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-            "drive_circle = turtlebot3_custom_navigation.drive_circle:main"
+            "drive_circle = turtlebot3_custom_navigation.drive_circle:main",
+            "drive_square = turtlebot3_custom_navigation.drive_square:main",
+            "drive_to_point_odom = turtlebot3_custom_navigation.drive_to_point_odom:main",
         ],
     },
 )
