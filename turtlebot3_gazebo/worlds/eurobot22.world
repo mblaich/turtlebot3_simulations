@@ -160,44 +160,186 @@
     </model>
 
 
-    <!--Landmarks-->
-    <!-- Do not use Landmarks for NWT Tage
-    <include>
-        <name>landmark1</name>
-        <uri>model://eurobot_landmark</uri>
-        <pose>-0.094 0.05 0.25 0 0 0</pose>
-    </include>
-    <include>
-        <name>landmark2</name>
-        <uri>model://eurobot_landmark</uri>
-        <pose>-0.094 1.0 0.25 0 0 0</pose>
-    </include>
-    <include>
-        <name>landmark3</name>
-        <uri>model://eurobot_landmark</uri>
-        <pose>-0.094 1.95 0.25 0 0 0</pose>
-    </include>
-    <include>
-        <name>landmark4</name>
-        <uri>model://eurobot_landmark</uri>
-        <pose>3.094 0.05 0.25 0 0 0</pose>
-    </include>
-    <include>
-        <name>landmark5</name>
-        <uri>model://eurobot_landmark</uri>
-        <pose>3.094 1.0 0.25 0 0 0</pose>
-    </include>
-    <include>
-        <name>landmark6</name>
-        <uri>model://eurobot_landmark</uri>
-        <pose>3.094 1.95 0.25 0 0 0</pose>
-        <material>
-            <ambient>1.0 0.5 0.5 1</ambient>
-            <diffuse>1.0 0.5 0.5 1</diffuse>
-            <specular>0 0 0 0</specular>
-            <emissive>0 0 0 0</emissive>
-        </material>
-    </include>
+    <!--Landmarks yellow-->
+    <model name="landmark2">
+      <pose>-0.094 1.0 0.25 0 0 0</pose>
+      <static>true</static>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <cylinder>
+              <length>0.5</length>
+              <radius>0.05</radius>
+            </cylinder>
+          </geometry>
+          <laser_retro>20.0</laser_retro>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <length>0.5</length>
+              <radius>0.05</radius>
+            </cylinder>
+          </geometry>
+            <material>
+              <ambient>0.96 0.71 0.0 1</ambient>
+              <diffuse>0.96 0.71 0.0 1</diffuse>
+              <specular>0 0 0 0</specular>
+              <emissive>0 0 0 0</emissive>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <model name="landmark4">
+      <pose>3.094 0.05 0.25 0 0 0</pose>
+      <static>true</static>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <cylinder>
+              <length>0.5</length>
+              <radius>0.05</radius>
+            </cylinder>
+          </geometry>
+          <laser_retro>40.0</laser_retro>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <length>0.5</length>
+              <radius>0.05</radius>
+            </cylinder>
+          </geometry>
+            <material>
+              <ambient>0.96 0.71 0.0 1</ambient>
+              <diffuse>0.96 0.71 0.0 1</diffuse>
+              <specular>0 0 0 0</specular>
+              <emissive>0 0 0 0</emissive>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <model name="landmark6">
+      <pose>3.094 1.95 0.25 0 0 0</pose>
+      <static>true</static>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <cylinder>
+              <length>0.5</length>
+              <radius>0.05</radius>
+            </cylinder>
+          </geometry>
+          <laser_retro>60.0</laser_retro>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <length>0.5</length>
+              <radius>0.05</radius>
+            </cylinder>
+          </geometry>
+            <material>
+              <ambient>0.96 0.71 0.0 1</ambient>
+              <diffuse>0.96 0.71 0.0 1</diffuse>
+              <specular>0 0 0 0</specular>
+              <emissive>0 0 0 0</emissive>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <!--Landmarks purple-->
+    <!--
+    <model name="landmark1">
+      <pose>-0.094 0.05 0.25 0 0 0</pose>
+      <static>true</static>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <cylinder>
+              <length>0.5</length>
+              <radius>0.05</radius>
+            </cylinder>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <length>0.5</length>
+              <radius>0.05</radius>
+            </cylinder>
+          </geometry>
+            <material>
+              <ambient>0.52 0.30 0.31 1</ambient>
+              <diffuse>0.52 0.30 0.31 1</diffuse>
+              <specular>0 0 0 0</specular>
+              <emissive>0 0 0 0</emissive>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <model name="landmark3">
+      <pose>-0.094 1.95 0.25 0 0 0</pose>
+      <static>true</static>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <cylinder>
+              <length>0.5</length>
+              <radius>0.05</radius>
+            </cylinder>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <length>0.5</length>
+              <radius>0.05</radius>
+            </cylinder>
+          </geometry>
+            <material>
+              <ambient>0.52 0.30 0.31 1</ambient>
+              <diffuse>0.52 0.30 0.31 1</diffuse>
+              <specular>0 0 0 0</specular>
+              <emissive>0 0 0 0</emissive>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <model name="landmark5">
+      <pose>3.094 1.0 0.25 0 0 0</pose>
+      <static>true</static>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <cylinder>
+              <length>0.5</length>
+              <radius>0.05</radius>
+            </cylinder>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <length>0.5</length>
+              <radius>0.05</radius>
+            </cylinder>
+          </geometry>
+            <material>
+              <ambient>0.52 0.30 0.31 1</ambient>
+              <diffuse>0.52 0.30 0.31 1</diffuse>
+              <specular>0 0 0 0</specular>
+              <emissive>0 0 0 0</emissive>
+          </material>
+        </visual>
+      </link>
+    </model>
     -->
+
   </world>
 </sdf>
