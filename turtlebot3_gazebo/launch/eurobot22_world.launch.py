@@ -42,7 +42,7 @@ def generate_launch_description():
     # Spawn the eurobot robot
     spawn_robot_cmd = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(
-            join(turtlebot3_gazebo_dir, "launch", "spawn_turtlebot3.launch.py")
+            join(turtlebot3_gazebo_dir, "launch", "spawn_turtlebot3_tg15_lidar.launch.py")
         ),
         launch_arguments={
             "x_pose": robot_start_pose_x,
