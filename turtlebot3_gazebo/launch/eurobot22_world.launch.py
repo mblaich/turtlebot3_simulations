@@ -12,6 +12,8 @@ def generate_launch_description():
     turtlebot3_gazebo_dir = get_package_share_directory("turtlebot3_gazebo")
     gazebo_ros_dir = get_package_share_directory("gazebo_ros")
     os.environ["GAZEBO_MODEL_PATH"] = os.path.join(turtlebot3_gazebo_dir, 'models')
+    os.environ["TURTLEBOT3_MODEL"] = 'burger_tg15_lidar'
+
 
     use_sim_time = LaunchConfiguration("use_sim_time", default="true")
     robot_start_pose_x = LaunchConfiguration("robot_start_pose_x", default="0.5")
@@ -42,7 +44,7 @@ def generate_launch_description():
     # Spawn the eurobot robot
     spawn_robot_cmd = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(
-            join(turtlebot3_gazebo_dir, "launch", "spawn_turtlebot3_tg15_lidar.launch.py")
+            join(turtlebot3_gazebo_dir, "launch", "spawn_turtlebot3.launch.py")
         ),
         launch_arguments={
             "x_pose": robot_start_pose_x,

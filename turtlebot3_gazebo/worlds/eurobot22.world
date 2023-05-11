@@ -132,7 +132,7 @@
             </visual>
         </link>
     </model>
-        <model name="wall4">
+    <model name="wall4">
         <static>true</static>
         <pose>-0.01 1.0 0.045 0 0 0</pose>
         <link name="body">
@@ -264,6 +264,7 @@
               <radius>0.05</radius>
             </cylinder>
           </geometry>
+          <laser_retro>10.0</laser_retro>
         </collision>
         <visual name="visual">
           <geometry>
@@ -292,6 +293,7 @@
               <length>0.5</length>
               <radius>0.05</radius>
             </cylinder>
+            <laser_retro>30.0</laser_retro>
           </geometry>
         </collision>
         <visual name="visual">
@@ -322,6 +324,7 @@
               <radius>0.05</radius>
             </cylinder>
           </geometry>
+          <laser_retro>50.0</laser_retro>
         </collision>
         <visual name="visual">
           <geometry>
@@ -340,6 +343,89 @@
       </link>
     </model>
     -->
+
+    <!--
+    <model name="room_wall1">
+          <static>true</static>
+          <pose>-3.0 2.0 0.5 0 0 0</pose>
+          <link name="body">
+              <collision name="collision1">
+                  <geometry>
+                  <box>
+                      <size>0.1 8.0 1.0</size>
+                  </box>
+                  </geometry>
+              </collision>
+              <visual name="visual1">
+                  <geometry>
+                  <box>
+                      <size>0.1 8.0 1.0</size>
+                  </box>
+                  </geometry>
+                  <material>
+                  <ambient>0.71 0.69 0.63 1.0</ambient>
+                  <diffuse>0.71 0.69 0.63 1.0</diffuse>
+                  <specular>0.1 0.1 0.1 1</specular>
+                  <emissive>0 0 0 0</emissive>
+                  </material>
+              </visual>
+          </link>
+      </model>
+
+      <model name="room_wall2">
+          <static>true</static>
+          <pose>1.5 6.0 0.5 0 0 0</pose>
+          <link name="body">
+              <collision name="collision1">
+                  <geometry>
+                  <box>
+                      <size>9.0 0.1 1.0</size>
+                  </box>
+                  </geometry>
+              </collision>
+              <visual name="visual1">
+                  <geometry>
+                  <box>
+                      <size>9.0 0.1 1.0</size>
+                  </box>
+                  </geometry>
+                  <material>
+                  <ambient>0.71 0.69 0.63 1.0</ambient>
+                  <diffuse>0.71 0.69 0.63 1.0</diffuse>
+                  <specular>0.1 0.1 0.1 1</specular>
+                  <emissive>0 0 0 0</emissive>
+                  </material>
+              </visual>
+          </link>
+      </model>
+
+    <model name="room_wall3">
+          <static>true</static>
+          <pose>6.0 2.0 0.5 0 0 0</pose>
+          <link name="body">
+              <collision name="collision1">
+                  <geometry>
+                  <box>
+                      <size>0.1 8.0 1.0</size>
+                  </box>
+                  </geometry>
+              </collision>
+              <visual name="visual1">
+                  <geometry>
+                  <box>
+                      <size>0.1 8.0 1.0</size>
+                  </box>
+                  </geometry>
+                  <material>
+                  <ambient>0.71 0.69 0.63 1.0</ambient>
+                  <diffuse>0.71 0.69 0.63 1.0</diffuse>
+                  <specular>0.1 0.1 0.1 1</specular>
+                  <emissive>0 0 0 0</emissive>
+                  </material>
+              </visual>
+          </link>
+      </model>
+      -->
 
   </world>
 </sdf>
