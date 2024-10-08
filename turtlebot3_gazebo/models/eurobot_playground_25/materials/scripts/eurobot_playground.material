@@ -1,0 +1,27 @@
+material Playground/2025
+{
+  technique
+  {
+    pass
+    {
+      texture_unit
+      {
+        texture vinyle_table_2025.png
+      }
+    }
+  }
+}
+
+material Playground/2025
+{
+  technique
+  {
+    pass
+    {
+      texture_unit
+      {
+        texture vinyle_table_2025.png
+      }
+    }
+  }
+}
