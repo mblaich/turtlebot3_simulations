@@ -74,6 +74,337 @@
         <pose>2.15 1.9 0.035 0 0 0</pose>
     </include>
 
+    <!-- Cans front left-->
+    <include>
+      <name>can11</name>
+      <uri>model://eurobot_25_cans</uri>
+      <pose>0.60 0.05 0.055 0 0 0</pose>
+    </include>
+    <include>
+      <name>can12</name>
+      <uri>model://eurobot_25_cans</uri>
+      <pose>0.70 0.05 0.055 0 0 0</pose>
+    </include>
+    <include>
+      <name>can13</name>
+      <uri>model://eurobot_25_cans</uri>
+      <pose>0.80 0.05 0.055 0 0 0</pose>
+    </include>
+    <include>
+      <name>can14</name>
+      <uri>model://eurobot_25_cans</uri>
+      <pose>0.90 0.05 0.055 0 0 0</pose>
+    </include>
+    <!-- planks front left-->
+    <include>
+      <name>plank_11</name>
+      <uri>model://eurobot_25_plank</uri>
+      <pose>0.75 0.05 0.118 0 0 0</pose>
+    </include>
+    <include>
+      <name>plank_12</name>
+      <uri>model://eurobot_25_plank</uri>
+      <pose>0.75 0.05 0.134 0 0 0</pose>
+    </include>
+
+    <!-- Cans left front -->
+    <include>
+      <name>can21</name>
+      <uri>model://eurobot_25_cans</uri>
+      <pose>0.05 0.5 0.055 0 0 0</pose>
+    </include>
+    <include>
+      <name>can22</name>
+      <uri>model://eurobot_25_cans</uri>
+      <pose>0.15 0.5 0.055 0 0 0</pose>
+    </include>
+    <include>
+      <name>can23</name>
+      <uri>model://eurobot_25_cans</uri>
+      <pose>0.25 0.5 0.055 0 0 0</pose>
+    </include>
+    <include>
+      <name>can24</name>
+      <uri>model://eurobot_25_cans</uri>
+      <pose>0.35 0.5 0.055 0 0 0</pose>
+    </include>
+    <!-- planks left front -->
+    <include>
+      <name>plank_21</name>
+      <uri>model://eurobot_25_plank</uri>
+      <pose>0.2 0.5 0.118 0 0 0</pose>
+    </include>
+    <include>
+      <name>plank_22</name>
+      <uri>model://eurobot_25_plank</uri>
+      <pose>0.2 0.5 0.134 0 0 0</pose>
+    </include>
+
+    <!-- Cans left middle -->
+    <include>
+      <name>can31</name>
+      <uri>model://eurobot_25_cans</uri>
+      <pose>0.05 1.05 0.055 0 0 0</pose>
+    </include>
+    <include>
+      <name>can32</name>
+      <uri>model://eurobot_25_cans</uri>
+      <pose>0.15 1.05 0.055 0 0 0</pose>
+    </include>
+    <include>
+      <name>can33</name>
+      <uri>model://eurobot_25_cans</uri>
+      <pose>0.25 1.05 0.055 0 0 0</pose>
+    </include>
+    <include>
+      <name>can34</name>
+      <uri>model://eurobot_25_cans</uri>
+      <pose>0.35 1.05 0.055 0 0 0</pose>
+    </include>
+    <!-- planks left middle -->
+    <include>
+      <name>plank_31</name>
+      <uri>model://eurobot_25_plank</uri>
+      <pose>0.2 1.05 0.118 0 0 0</pose>
+    </include>
+    <include>
+      <name>plank_32</name>
+      <uri>model://eurobot_25_plank</uri>
+      <pose>0.2 1.05 0.134 0 0 0</pose>
+    </include>
+
+    <!-- Cans center left -->
+    <include>
+      <name>can41</name>
+      <uri>model://eurobot_25_cans</uri>
+      <pose>0.95 0.95 0.055 0 0 0</pose>
+    </include>
+    <include>
+      <name>can42</name>
+      <uri>model://eurobot_25_cans</uri>
+      <pose>1.05 0.95 0.055 0 0 0</pose>
+    </include>
+    <include>
+      <name>can43</name>
+      <uri>model://eurobot_25_cans</uri>
+      <pose>1.15 0.95 0.055 0 0 0</pose>
+    </include>
+    <include>
+      <name>can44</name>
+      <uri>model://eurobot_25_cans</uri>
+      <pose>1.25 0.95 0.055 0 0 0</pose>
+    </include>
+    <!-- planks center left -->
+    <include>
+      <name>plank_41</name>
+      <uri>model://eurobot_25_plank</uri>
+      <pose>1.1 0.95 0.118 0 0 0</pose>
+    </include>
+    <include>
+      <name>plank_42</name>
+      <uri>model://eurobot_25_plank</uri>
+      <pose>1.1 0.95 0.134 0 0 0</pose>
+    </include>
+
+    <!-- Cans backstage left -->
+    <include>
+      <name>can51</name>
+      <uri>model://eurobot_25_cans</uri>
+      <pose>0.70 1.75 0.055 0 0 0</pose>
+    </include>
+    <include>
+      <name>can52</name>
+      <uri>model://eurobot_25_cans</uri>
+      <pose>0.80 1.75 0.055 0 0 0</pose>
+    </include>
+    <include>
+      <name>can53</name>
+      <uri>model://eurobot_25_cans</uri>
+      <pose>0.90 1.75 0.055 0 0 0</pose>
+    </include>
+    <include>
+      <name>can54</name>
+      <uri>model://eurobot_25_cans</uri>
+      <pose>1.00 1.75 0.055 0 0 0</pose>
+    </include>
+    <!-- planks backstage left -->
+    <include>
+      <name>plank_51</name>
+      <uri>model://eurobot_25_plank</uri>
+      <pose>0.85 1.75 0.118 0 0 0</pose>
+    </include>
+    <include>
+      <name>plank_52</name>
+      <uri>model://eurobot_25_plank</uri>
+      <pose>0.85 1.75 0.134 0 0 0</pose>
+    </include>
+
+
+<!-- Cans front right-->
+    <include>
+      <name>can15</name>
+      <uri>model://eurobot_25_cans</uri>
+      <pose>2.10 0.05 0.055 0 0 0</pose>
+    </include>
+    <include>
+      <name>can16</name>
+      <uri>model://eurobot_25_cans</uri>
+      <pose>2.20 0.05 0.055 0 0 0</pose>
+    </include>
+    <include>
+      <name>can17</name>
+      <uri>model://eurobot_25_cans</uri>
+      <pose>2.30 0.05 0.055 0 0 0</pose>
+    </include>
+    <include>
+      <name>can18</name>
+      <uri>model://eurobot_25_cans</uri>
+      <pose>2.40 0.05 0.055 0 0 0</pose>
+    </include>
+    <!-- planks front right-->
+    <include>
+      <name>plank_13</name>
+      <uri>model://eurobot_25_plank</uri>
+      <pose>2.25 0.05 0.118 0 0 0</pose>
+    </include>
+    <include>
+      <name>plank_14</name>
+      <uri>model://eurobot_25_plank</uri>
+      <pose>2.25 0.05 0.134 0 0 0</pose>
+    </include>
+
+    <!-- Cans right front -->
+    <include>
+      <name>can25</name>
+      <uri>model://eurobot_25_cans</uri>
+      <pose>2.65 0.5 0.055 0 0 0</pose>
+    </include>
+    <include>
+      <name>can26</name>
+      <uri>model://eurobot_25_cans</uri>
+      <pose>2.75 0.5 0.055 0 0 0</pose>
+    </include>
+    <include>
+      <name>can27</name>
+      <uri>model://eurobot_25_cans</uri>
+      <pose>2.85 0.5 0.055 0 0 0</pose>
+    </include>
+    <include>
+      <name>can28</name>
+      <uri>model://eurobot_25_cans</uri>
+      <pose>2.95 0.5 0.055 0 0 0</pose>
+    </include>
+    <!-- planks right front -->
+    <include>
+      <name>plank_23</name>
+      <uri>model://eurobot_25_plank</uri>
+      <pose>2.8 0.5 0.118 0 0 0</pose>
+    </include>
+    <include>
+      <name>plank_24</name>
+      <uri>model://eurobot_25_plank</uri>
+      <pose>2.8 0.5 0.134 0 0 0</pose>
+    </include>
+
+    <!-- Cans right middle -->
+    <include>
+      <name>can35</name>
+      <uri>model://eurobot_25_cans</uri>
+      <pose>2.65 1.05 0.055 0 0 0</pose>
+    </include>
+    <include>
+      <name>can36</name>
+      <uri>model://eurobot_25_cans</uri>
+      <pose>2.75 1.05 0.055 0 0 0</pose>
+    </include>
+    <include>
+      <name>can37</name>
+      <uri>model://eurobot_25_cans</uri>
+      <pose>2.85 1.05 0.055 0 0 0</pose>
+    </include>
+    <include>
+      <name>can38</name>
+      <uri>model://eurobot_25_cans</uri>
+      <pose>2.95 1.05 0.055 0 0 0</pose>
+    </include>
+    <!-- planks right middle -->
+    <include>
+      <name>plank_33</name>
+      <uri>model://eurobot_25_plank</uri>
+      <pose>2.80 1.05 0.118 0 0 0</pose>
+    </include>
+    <include>
+      <name>plank_34</name>
+      <uri>model://eurobot_25_plank</uri>
+      <pose>2.8 1.05 0.134 0 0 0</pose>
+    </include>
+
+    <!-- Cans center right -->
+    <include>
+      <name>can45</name>
+      <uri>model://eurobot_25_cans</uri>
+      <pose>1.75 0.95 0.055 0 0 0</pose>
+    </include>
+    <include>
+      <name>can46</name>
+      <uri>model://eurobot_25_cans</uri>
+      <pose>1.85 0.95 0.055 0 0 0</pose>
+    </include>
+    <include>
+      <name>can47</name>
+      <uri>model://eurobot_25_cans</uri>
+      <pose>1.95 0.95 0.055 0 0 0</pose>
+    </include>
+    <include>
+      <name>can48</name>
+      <uri>model://eurobot_25_cans</uri>
+      <pose>2.05 0.95 0.055 0 0 0</pose>
+    </include>
+    <!-- planks center right -->
+    <include>
+      <name>plank_43</name>
+      <uri>model://eurobot_25_plank</uri>
+      <pose>1.9 0.95 0.118 0 0 0</pose>
+    </include>
+    <include>
+      <name>plank_44</name>
+      <uri>model://eurobot_25_plank</uri>
+      <pose>1.9 0.95 0.134 0 0 0</pose>
+    </include>
+
+    <!-- Cans backstage right -->
+    <include>
+      <name>can55</name>
+      <uri>model://eurobot_25_cans</uri>
+      <pose>2.00 1.75 0.055 0 0 0</pose>
+    </include>
+    <include>
+      <name>can56</name>
+      <uri>model://eurobot_25_cans</uri>
+      <pose>2.10 1.75 0.055 0 0 0</pose>
+    </include>
+    <include>
+      <name>can57</name>
+      <uri>model://eurobot_25_cans</uri>
+      <pose>2.20 1.75 0.055 0 0 0</pose>
+    </include>
+    <include>
+      <name>can58</name>
+      <uri>model://eurobot_25_cans</uri>
+      <pose>2.30 1.75 0.055 0 0 0</pose>
+    </include>
+    <!-- planks backstage right -->
+    <include>
+      <name>plank_53</name>
+      <uri>model://eurobot_25_plank</uri>
+      <pose>2.15 1.75 0.118 0 0 0</pose>
+    </include>
+    <include>
+      <name>plank_54</name>
+      <uri>model://eurobot_25_plank</uri>
+      <pose>2.15 1.75 0.134 0 0 0</pose>
+    </include>
+
     <!--Walls-->
     <model name="wall1">
       <static>true</static>
