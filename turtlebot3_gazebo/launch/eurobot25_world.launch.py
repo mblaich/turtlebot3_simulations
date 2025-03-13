@@ -14,10 +14,10 @@ def generate_launch_description():
     os.environ["GAZEBO_MODEL_PATH"] = os.path.join(turtlebot3_gazebo_dir, 'models')
     os.environ["TURTLEBOT3_MODEL"] = 'burger_tg15_lidar'
 
-
     use_sim_time = LaunchConfiguration("use_sim_time", default="true")
     robot_start_pose_x = LaunchConfiguration("robot_start_pose_x", default="1.25")
     robot_start_pose_y = LaunchConfiguration("robot_start_pose_y", default="0.2")
+    robot_start_pose_yaw = LaunchConfiguration("robot_start_pose_yaw", default="0.0")
     default_world = join(turtlebot3_gazebo_dir, "worlds", "eurobot25.world")
 
     # Start Gazebo server and client
@@ -48,7 +48,8 @@ def generate_launch_description():
         ),
         launch_arguments={
             "x_pose": robot_start_pose_x,
-            "y_pose": robot_start_pose_y
+            "y_pose": robot_start_pose_y,
+            "yaw_pose": robot_start_pose_yaw
         }.items()
     )
 
