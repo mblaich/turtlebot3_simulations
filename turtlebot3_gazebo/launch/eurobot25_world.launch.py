@@ -3,15 +3,14 @@ import os
 
 from ament_index_python.packages import get_package_share_directory
 from launch import LaunchDescription
-from launch.actions import IncludeLaunchDescription
+from launch.actions import AppendEnvironmentVariable, IncludeLaunchDescription
 from launch.launch_description_sources import PythonLaunchDescriptionSource
 from launch.substitutions import LaunchConfiguration
 
 
 def generate_launch_description():
     turtlebot3_gazebo_dir = get_package_share_directory("turtlebot3_gazebo")
-    gazebo_ros_dir = get_package_share_directory("gazebo_ros")
-    os.environ["GAZEBO_MODEL_PATH"] = os.path.join(turtlebot3_gazebo_dir, 'models')
+    ros_gz_sim_dir = get_package_share_directory("ros_gz_sim")
     os.environ["TURTLEBOT3_MODEL"] = 'burger_tg15_lidar'
 
     use_sim_time = LaunchConfiguration("use_sim_time", default="true")
@@ -23,14 +22,15 @@ def generate_launch_description():
     # Start Gazebo server and client
     gzserver_cmd = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(
-            join(gazebo_ros_dir, "launch", "gzserver.launch.py")
+            join(ros_gz_sim_dir, "launch", "gz_sim.launch.py")
         ),
-        launch_arguments={"world": default_world}.items()
+        launch_arguments={"gz_args": ["-r -s -v2 ", default_world], "on_exit_shutdown": "true"}.items()
     )
     gzclient_cmd = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(
-            join(gazebo_ros_dir, "launch", "gzclient.launch.py")
-        )
+            join(ros_gz_sim_dir, "launch", "gz_sim.launch.py")
+        ),
+        launch_arguments={"gz_args": "-g -v2 "}.items()
     )
 
     # Start robot state publisher
@@ -53,7 +53,12 @@ def generate_launch_description():
         }.items()
     )
 
+    set_env_vars_resources = AppendEnvironmentVariable(
+        'GZ_SIM_RESOURCE_PATH',
+        join(turtlebot3_gazebo_dir, 'models'))
+
     return LaunchDescription([
+        set_env_vars_resources,
         gzserver_cmd,
         gzclient_cmd,
         spawn_robot_cmd,
