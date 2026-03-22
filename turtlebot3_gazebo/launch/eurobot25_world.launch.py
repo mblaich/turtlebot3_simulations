@@ -5,12 +5,12 @@ from ament_index_python.packages import get_package_share_directory
 from launch import LaunchDescription
 from launch.actions import AppendEnvironmentVariable, IncludeLaunchDescription
 from launch.launch_description_sources import PythonLaunchDescriptionSource
-from launch.substitutions import LaunchConfiguration
+from launch.substitutions import LaunchConfiguration, PathJoinSubstitution
+from launch_ros.substitutions import FindPackageShare
 
 
 def generate_launch_description():
     turtlebot3_gazebo_dir = get_package_share_directory("turtlebot3_gazebo")
-    ros_gz_sim_dir = get_package_share_directory("ros_gz_sim")
     os.environ["TURTLEBOT3_MODEL"] = 'burger_tg15_lidar'
 
     use_sim_time = LaunchConfiguration("use_sim_time", default="true")
@@ -20,17 +20,17 @@ def generate_launch_description():
     default_world = join(turtlebot3_gazebo_dir, "worlds", "eurobot25.world")
 
     # Start Gazebo server and client
-    gzserver_cmd = IncludeLaunchDescription(
+    gz_sim_launch = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(
-            join(ros_gz_sim_dir, "launch", "gz_sim.launch.py")
+            PathJoinSubstitution([
+                FindPackageShare("ros_gz_sim"),
+                "launch",
+                "gz_sim.launch.py"
+            ])
         ),
-        launch_arguments={"gz_args": ["-r -s -v2 ", default_world], "on_exit_shutdown": "true"}.items()
-    )
-    gzclient_cmd = IncludeLaunchDescription(
-        PythonLaunchDescriptionSource(
-            join(ros_gz_sim_dir, "launch", "gz_sim.launch.py")
-        ),
-        launch_arguments={"gz_args": "-g -v2 "}.items()
+        launch_arguments={
+            "gz_args": f"-r {default_world}"
+        }.items()
     )
 
     # Start robot state publisher
@@ -59,8 +59,7 @@ def generate_launch_description():
 
     return LaunchDescription([
         set_env_vars_resources,
-        gzserver_cmd,
-        gzclient_cmd,
+        gz_sim_launch,
         spawn_robot_cmd,
         robot_state_publisher_cmd
     ])

@@ -22,12 +22,12 @@ from ament_index_python.packages import get_package_share_directory
 from launch import LaunchDescription
 from launch.actions import AppendEnvironmentVariable, IncludeLaunchDescription
 from launch.launch_description_sources import PythonLaunchDescriptionSource
-from launch.substitutions import LaunchConfiguration
+from launch.substitutions import LaunchConfiguration, PathJoinSubstitution
+from launch_ros.substitutions import FindPackageShare
 
 
 def generate_launch_description():
     launch_file_dir = os.path.join(get_package_share_directory('turtlebot3_gazebo'), 'launch')
-    ros_gz_sim = get_package_share_directory('ros_gz_sim')
     os.environ['TURTLEBOT3_MODEL'] = 'burger'
 
     use_sim_time = LaunchConfiguration('use_sim_time', default='true')
@@ -40,18 +40,18 @@ def generate_launch_description():
         'turtlebot3_icp.world'
     )
 
-    gzserver_cmd = IncludeLaunchDescription(
+    # Start Gazebo server and client
+    gz_sim_launch = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(
-            os.path.join(ros_gz_sim, 'launch', 'gz_sim.launch.py')
+            PathJoinSubstitution([
+                FindPackageShare("ros_gz_sim"),
+                "launch",
+                "gz_sim.launch.py"
+            ])
         ),
-        launch_arguments={'gz_args': ['-r -s -v2 ', world], 'on_exit_shutdown': 'true'}.items()
-    )
-
-    gzclient_cmd = IncludeLaunchDescription(
-        PythonLaunchDescriptionSource(
-            os.path.join(ros_gz_sim, 'launch', 'gz_sim.launch.py')
-        ),
-        launch_arguments={'gz_args': '-g -v2 '}.items()
+        launch_arguments={
+            "gz_args": f"-r {world}"
+        }.items()
     )
 
     robot_state_publisher_cmd = IncludeLaunchDescription(
@@ -77,10 +77,8 @@ def generate_launch_description():
 
     ld = LaunchDescription()
 
-    # Add the commands to the launch description
     ld.add_action(set_env_vars_resources)
-    ld.add_action(gzserver_cmd)
-    ld.add_action(gzclient_cmd)
+    ld.add_action(gz_sim_launch)
     ld.add_action(robot_state_publisher_cmd)
     ld.add_action(spawn_turtlebot_cmd)
 
