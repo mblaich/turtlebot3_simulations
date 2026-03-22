@@ -11,6 +11,7 @@ from launch.substitutions import LaunchConfiguration
 def generate_launch_description():
     turtlebot3_gazebo_dir = get_package_share_directory("turtlebot3_gazebo")
     ros_gz_sim_dir = get_package_share_directory("ros_gz_sim")
+    os.environ['TURTLEBOT3_MODEL'] = 'burger'
 
     use_sim_time = LaunchConfiguration("use_sim_time", default="true")
     robot_start_pose_x = LaunchConfiguration("robot_start_pose_x", default="0.5")

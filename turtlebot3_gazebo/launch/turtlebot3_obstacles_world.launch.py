@@ -28,6 +28,7 @@ from launch.substitutions import LaunchConfiguration
 def generate_launch_description():
     launch_file_dir = os.path.join(get_package_share_directory('turtlebot3_gazebo'), 'launch')
     ros_gz_sim = get_package_share_directory('ros_gz_sim')
+    os.environ['TURTLEBOT3_MODEL'] = 'burger'
 
     use_sim_time = LaunchConfiguration('use_sim_time', default='true')
     x_pose = LaunchConfiguration('x_pose', default='-2.0')
