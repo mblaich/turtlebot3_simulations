@@ -20,39 +20,63 @@ import os
 
 from ament_index_python.packages import get_package_share_directory
 from launch import LaunchDescription
+from launch.actions import (
+    AppendEnvironmentVariable,
+    DeclareLaunchArgument,
+    IncludeLaunchDescription
+)
+from launch.conditions import IfCondition
 from launch.actions import AppendEnvironmentVariable, IncludeLaunchDescription
 from launch.launch_description_sources import PythonLaunchDescriptionSource
-from launch.substitutions import LaunchConfiguration, PathJoinSubstitution
+from launch.substitutions import LaunchConfiguration, PathJoinSubstitution, PythonExpression
 from launch_ros.substitutions import FindPackageShare
-
 
 def generate_launch_description():
     launch_file_dir = os.path.join(get_package_share_directory('turtlebot3_gazebo'), 'launch')
     os.environ['TURTLEBOT3_MODEL'] = 'burger'
 
+    package_name_gazebo = 'turtlebot3_gazebo'
+
     use_sim_time = LaunchConfiguration('use_sim_time', default='true')
     x_pose = LaunchConfiguration('x_pose', default='-2.0')
     y_pose = LaunchConfiguration('y_pose', default='-0.5')
 
-    world = os.path.join(
+    pkg_ros_gz_sim = FindPackageShare(package='ros_gz_sim').find('ros_gz_sim')
+    headless = LaunchConfiguration('headless')
+
+    gui_config_path = os.path.join(
+        get_package_share_directory(package_name_gazebo),
+        'config',
+        'gui.config'
+    )
+
+    world_path = os.path.join(
         get_package_share_directory('turtlebot3_gazebo'),
         'worlds',
         'turtlebot3_obstacles.world'
     )
 
-    # Start Gazebo server and client
-    gz_sim_launch = IncludeLaunchDescription(
+    # Declare the launch arguments
+    declare_headless_cmd = DeclareLaunchArgument(
+        name='headless',
+        default_value='False',
+        description='Whether to execute gzclient (visualization)')
+
+    # Start Gazebo
+    start_gazebo_server_cmd = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(
-            PathJoinSubstitution([
-                FindPackageShare("ros_gz_sim"),
-                "launch",
-                "gz_sim.launch.py"
-            ])
-        ),
-        launch_arguments={
-            "gz_args": f"-r {world}"
-        }.items()
-    )
+            os.path.join(pkg_ros_gz_sim, 'launch', 'gz_sim.launch.py')),
+        launch_arguments=[('gz_args',         [
+            ' -r -s -v 1 ',
+            world_path
+        ])])
+    
+    # Start Gazebo client (GUI) if not headless
+    start_gazebo_client_cmd = IncludeLaunchDescription(
+        PythonLaunchDescriptionSource(
+            os.path.join(pkg_ros_gz_sim, 'launch', 'gz_sim.launch.py')),
+        launch_arguments={'gz_args': ['-g ', ' --gui-config ', gui_config_path]}.items(),
+        condition=IfCondition(PythonExpression(['not ', headless])))
 
     robot_state_publisher_cmd = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(
@@ -79,7 +103,9 @@ def generate_launch_description():
 
     # Add the commands to the launch description
     ld.add_action(set_env_vars_resources)
-    ld.add_action(gz_sim_launch)
+    ld.add_action(declare_headless_cmd)
+    ld.add_action(start_gazebo_server_cmd)
+    ld.add_action(start_gazebo_client_cmd)
     ld.add_action(robot_state_publisher_cmd)
     ld.add_action(spawn_turtlebot_cmd)
 
